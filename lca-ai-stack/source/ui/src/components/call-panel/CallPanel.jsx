@@ -875,13 +875,13 @@ const CallTranscriptContainer = ({
         {
           colspan: {
             default: 12,
-            xs: process.env.REACT_APP_ENABLE_LEX_AGENT_ASSIST === 'true' ? 8 : 12,
+            xs: process.env.REACT_APP_ENABLE_LEX_AGENT_ASSIST === 'true' ? 6 : 12,
           },
         },
         {
           colspan: {
             default: 12,
-            xs: process.env.REACT_APP_ENABLE_LEX_AGENT_ASSIST === 'true' ? 4 : 0,
+            xs: process.env.REACT_APP_ENABLE_LEX_AGENT_ASSIST === 'true' ? 6 : 0,
           },
         },
       ]}
