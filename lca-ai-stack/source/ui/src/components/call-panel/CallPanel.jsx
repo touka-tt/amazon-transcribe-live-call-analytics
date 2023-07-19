@@ -1128,8 +1128,8 @@ export const CallPanel = ({ item, callTranscriptPerCallId, setToolsOpen }) => {
       </Grid>
       <Grid
         gridDefinition={[
-          { colspan: { default: 12, xs: enableVoiceTone ? 8 : 12 } },
-          { colspan: { default: 12, xs: enableVoiceTone ? 4 : 0 } },
+          { colspan: { default: 12, xs: enableVoiceTone ? 6 : 12 } },
+          { colspan: { default: 12, xs: enableVoiceTone ? 6 : 0 } },
         ]}
       >
         <CallStatsContainer
