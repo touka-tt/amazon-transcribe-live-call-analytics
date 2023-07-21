@@ -330,46 +330,24 @@ const CallSummary = ({ item }) => {
         </Header>
       }
     >
-      <Grid
-        gridDefinition={[{ colspan: { default: 12, xs: 6 } }, { colspan: { default: 12, xs: 6 } }]}
-      >
-        <Tabs
-          tabs={[
-            {
-              label: 'Transcript Summary',
-              id: 'summary',
-              content: (
-                <div>
-                  {/* eslint-disable-next-line react/no-array-index-key */}
-                  <TextContent color="gray">
-                    <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                      {item.callSummaryText ?? 'No summary available'}
-                    </ReactMarkdown>
-                  </TextContent>
-                </div>
-              ),
-            },
-          ]}
-        />
-        <Tabs
-          tabs={[
-            {
-              label: 'Issues',
-              id: 'issues',
-              content: (
-                <div>
-                  {/* eslint-disable-next-line react/no-array-index-key */}
-                  <TextContent color="gray" className="issue-detected">
-                    <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                      {item.issuesDetected ?? 'No issue detected'}
-                    </ReactMarkdown>
-                  </TextContent>
-                </div>
-              ),
-            },
-          ]}
-        />
-      </Grid>
+      <Tabs
+        tabs={[
+          {
+            label: 'Transcript Summary',
+            id: 'summary',
+            content: (
+              <div>
+                {/* eslint-disable-next-line react/no-array-index-key */}
+                <TextContent color="gray">
+                  <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                    {item.callSummaryText ?? 'No summary available'}
+                  </ReactMarkdown>
+                </TextContent>
+              </div>
+            ),
+          },
+        ]}
+      />
     </Container>
   );
 };
