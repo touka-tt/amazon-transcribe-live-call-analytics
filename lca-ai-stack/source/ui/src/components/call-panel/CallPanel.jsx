@@ -870,68 +870,50 @@ const CallTranscriptContainer = ({
     return translateOn;
   };
   return (
-    <Grid
-      gridDefinition={[
-        {
-          colspan: {
-            default: 12,
-            xs: process.env.REACT_APP_ENABLE_LEX_AGENT_ASSIST === 'true' ? 6 : 12,
-          },
-        },
-        {
-          colspan: {
-            default: 12,
-            xs: process.env.REACT_APP_ENABLE_LEX_AGENT_ASSIST === 'true' ? 6 : 0,
-          },
-        },
-      ]}
+    <Container
+      fitHeight="true"
+      disableContentPaddings
+      header={
+        <Header
+          variant="h4"
+          info={<InfoLink onFollow={() => setToolsOpen(true)} />}
+          actions={
+            <SpaceBetween direction="horizontal" size="xs">
+              <Toggle
+                onChange={({ detail }) => setAutoScroll(detail.checked)}
+                checked={autoScroll}
+                disabled={autoScrollDisabled}
+              />
+              <span>Auto Scroll</span>
+              <Toggle
+                onChange={({ detail }) => setAgentTranscript(detail.checked)}
+                checked={agentTranscript}
+              />
+              <span>Show Agent Transcripts?</span>
+              <Toggle
+                onChange={({ detail }) => setTranslateOn(detail.checked)}
+                checked={translateOn}
+              />
+              <span>Enable Translation</span>
+              {languageChoices()}
+            </SpaceBetween>
+          }
+        >
+          Call Transcript
+        </Header>
+      }
     >
-      <Container
-        fitHeight="true"
-        disableContentPaddings
-        header={
-          <Header
-            variant="h4"
-            info={<InfoLink onFollow={() => setToolsOpen(true)} />}
-            actions={
-              <SpaceBetween direction="horizontal" size="xs">
-                <Toggle
-                  onChange={({ detail }) => setAutoScroll(detail.checked)}
-                  checked={autoScroll}
-                  disabled={autoScrollDisabled}
-                />
-                <span>Auto Scroll</span>
-                <Toggle
-                  onChange={({ detail }) => setAgentTranscript(detail.checked)}
-                  checked={agentTranscript}
-                />
-                <span>Show Agent Transcripts?</span>
-                <Toggle
-                  onChange={({ detail }) => setTranslateOn(detail.checked)}
-                  checked={translateOn}
-                />
-                <span>Enable Translation</span>
-                {languageChoices()}
-              </SpaceBetween>
-            }
-          >
-            Call Transcript
-          </Header>
-        }
-      >
-        {getTranscriptContent({
-          item,
-          callTranscriptPerCallId,
-          autoScroll,
-          translateClient,
-          targetLanguage,
-          agentTranscript,
-          translateOn,
-          collapseSentiment,
-        })}
-      </Container>
-      {getAgentAssistPanel(collapseSentiment)}
-    </Grid>
+      {getTranscriptContent({
+        item,
+        callTranscriptPerCallId,
+        autoScroll,
+        translateClient,
+        targetLanguage,
+        agentTranscript,
+        translateOn,
+        collapseSentiment,
+      })}
+    </Container>
   );
 };
 
@@ -1155,6 +1137,8 @@ export const CallPanel = ({ item, callTranscriptPerCallId, setToolsOpen }) => {
         translateClient={translateClient}
         collapseSentiment={collapseSentiment}
       />
+
+      {getAgentAssistPanel(collapseSentiment)}
     </SpaceBetween>
   );
 };
