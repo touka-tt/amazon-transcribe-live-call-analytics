@@ -716,7 +716,7 @@ const CallInProgressTranscript = ({
       && autoScroll
       && bottomRef.current?.scrollIntoView
     ) {
-      bottomRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      bottomRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
   }, [
     turnByTurnSegments,
