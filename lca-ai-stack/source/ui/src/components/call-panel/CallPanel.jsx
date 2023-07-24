@@ -812,10 +812,8 @@ const CallTranscriptContainer = ({
   collapseSentiment,
 }) => {
   // defaults to auto scroll when call is in progress
-  const [autoScroll, setAutoScroll] = useState(item.recordingStatusLabel === IN_PROGRESS_STATUS);
-  const [autoScrollDisabled, setAutoScrollDisabled] = useState(
-    item.recordingStatusLabel !== IN_PROGRESS_STATUS,
-  );
+  const [autoScroll, setAutoScroll] = useState(true);
+  const [autoScrollDisabled, setAutoScrollDisabled] = useState(false);
 
   const [translateOn, setTranslateOn] = useState(false);
   const [targetLanguage, setTargetLanguage] = useState(
