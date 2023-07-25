@@ -747,30 +747,32 @@ const CallInProgressTranscript = ({
 const getAgentAssistPanel = (collapseSentiment) => {
   if (process.env.REACT_APP_ENABLE_LEX_AGENT_ASSIST === 'true') {
     return (
-      <Container
-        disableContentPaddings
-        header={
-          <Header
-            variant="h4"
-            info={
-              <Link variant="info" target="_blank" href="https://amazon.com/live-call-analytics">
-                Info
-              </Link>
-            }
-          >
-            Agent Assist Bot
-          </Header>
-        }
-      >
-        <Box style={{ height: collapseSentiment ? '34vh' : '68vh' }}>
-          <iframe
-            style={{ border: '0px', height: collapseSentiment ? '34vh' : '68vh', margin: '0' }}
-            title="Agent Assist"
-            src="/index-lexwebui.html"
-            width="100%"
-          />
-        </Box>
-      </Container>
+      <div style={{ display: 'hidden' }}>
+        <Container
+          disableContentPaddings
+          header={
+            <Header
+              variant="h4"
+              info={
+                <Link variant="info" target="_blank" href="https://amazon.com/live-call-analytics">
+                  Info
+                </Link>
+              }
+            >
+              Agent Assist Bot
+            </Header>
+          }
+        >
+          <Box style={{ height: collapseSentiment ? '34vh' : '68vh' }}>
+            <iframe
+              style={{ border: '0px', height: collapseSentiment ? '34vh' : '68vh', margin: '0' }}
+              title="Agent Assist"
+              src="/index-lexwebui.html"
+              width="100%"
+            />
+          </Box>
+        </Container>
+      </div>
     );
   }
   return null;
